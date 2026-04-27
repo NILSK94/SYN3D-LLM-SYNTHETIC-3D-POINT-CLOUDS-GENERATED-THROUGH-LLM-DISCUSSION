@@ -82,6 +82,7 @@ SYN3DLLM/
 │   ├── logs/                # Discussion JSON logs
 │   ├── runs_metadata.csv    # Per-run summary
 │   └── discussion_log.csv   # Per-turn Designer/Critic log
+```
 
 
 ## Citation
