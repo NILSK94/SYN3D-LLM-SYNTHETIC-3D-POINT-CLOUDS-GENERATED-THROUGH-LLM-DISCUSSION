@@ -38,22 +38,6 @@ The framework can generate various infrastructure and building types. By default
 
 Each scene is strictly bound to an IFC ontology, dictating which semantic elements (e.g., `IfcWall`, `IfcSlab`, `IfcColumn`) the LLM is allowed and required to use. Every individual object instance is explicitly assigned a semantic string label (e.g., "Bridge Pier").
 
-## The Experiment Matrix
-
-SYN3D-LLM is designed for high-throughput scientific evaluation. Instead of generating scenes one by one, the framework executes a multi-dimensional **Experiment Matrix**. This matrix systematically combinations the following variables:
-
-1. **Geometry Profiles**: The level of mathematical assistance provided to the LLM (e.g., `G0_NoHelper` forces the LLM to write raw loop arithmetic, while `G3_Round` provides cylinder generation functions).
-2. **Scenes**: The architectural templates listed above.
-3. **Prompt Variants (PV)**: Semantic variations of the same scene (e.g., `PV1_Standard` vs. `PV2_Complex` irregular structures).
-4. **Seeds**: Multiple independent runs per configuration to measure LLM stability and variance.
-
-When you click **Run ALL** in the GUI, the framework loops through every combination of `Profile × Scene × Variant × Seed`. Results are stored hierarchically in `syn3d_runs/data/RunID/Profile/Scene/PV/Seed/` to facilitate large-scale ablation studies.
-
-## GUI
-
-A Tkinter-based GUI provides access to all settings (model, iterations, geometry profile), scene selection, system prompt viewing, and real-time logging of the Designer–Critic discussion.
-An Open3D live preview window updates after each iteration.
-
 ## Installation
 
 ```bash
@@ -83,13 +67,13 @@ SYN3DLLM/
 ├── src/
 │   ├── config.py            # API client, directory config
 │   ├── core/
-│   │   ├── generator.py     # Designer/Critic loop, prompt construction
-│   │   ├── execution.py     # Sandboxed code execution, constraint checking
-│   │   ├── geometry.py      # Helper functions (box_surface, plane_surface, …)
-│   │   └── scenes.py        # Scene templates, IFC ontology
+│   │   ├── generator.py     # Designer/Critic loop
+│   │   ├── execution.py     # code execution, constraint checking
+│   │   ├── geometry.py      # Helper functions 
+│   │   └── scenes.py        # Scene templates
 │   ├── ui/
 │   │   ├── app.py           # Tkinter GUI
-│   │   └── theme.py         # Dark mode styling
+│   │   └── theme.py         # styling
 │   └── utils/
 │       ├── file_io.py       # Export (.e57/.xyz/.ply), CSV/JSON discussion logging
 │       └── visualization.py # Open3D live preview
@@ -98,9 +82,7 @@ SYN3DLLM/
 │   ├── logs/                # Discussion JSON logs
 │   ├── runs_metadata.csv    # Per-run summary
 │   └── discussion_log.csv   # Per-turn Designer/Critic log
-└── tests/
-    └── test_basics.py
-```
+
 
 ## Citation
 
