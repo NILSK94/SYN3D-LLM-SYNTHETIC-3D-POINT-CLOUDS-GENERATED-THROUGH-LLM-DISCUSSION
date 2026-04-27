@@ -45,6 +45,16 @@ pip install -r requirements.txt
 # Optional: pip install pye57  (for .e57 export)
 ```
 
+### With a venv (other option)
+Stay clear that you are in the folder of SYN3D-LLM
+
+```bash
+py -3.12 -m venv venv312
+.\venv312\Scripts\activate
+python --version
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
 ## Usage
 
 ```bash
