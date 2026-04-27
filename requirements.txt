@@ -1,0 +1,6 @@
+numpy
+open3d>=0.18.0
+openai
+python-dotenv
+# pye57 is required for .e57 export (install separately if needed):
+# pip install pye57
